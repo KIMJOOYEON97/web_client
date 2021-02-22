@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+
+    <title>img</title>
+    <style>
+        img{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>이미지관련</h1>
+    <img src="../sample/image/flower1.PNG" alt="꽃사진">
+    <img src="https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=14473&fileTy=MEDIA&fileNo=2" alt="꽃사진">
+
+    <hr>
+    <h2>절대값 | 상대값</h2>
+    <div>
+        <!-- px픽셀 절대값이므로, 화면(viewport)가 변해도 너비/높이가 변하지 않는다 -->
+        <img src="../sample/image/flower1.PNG" style="width: 250px;">
+        <img src="../sample/image/flower2.PNG" style="width: 250px;">
+        <img src="../sample/image/flower3.PNG" style="width: 250px;">
+        <img src="../sample/image/flower4.PNG" style="width: 250px;">
+    </div>
+    <hr>
+    <div>
+        <!--%는 상대값이므로, 화면(viewport)대비 너비/높이값이 변한다.-->
+        <img src="../sample/image/flower1.PNG" style="width: 23%;">
+        <img src="../sample/image/flower2.PNG" style="width: 23%;">
+        <img src="../sample/image/flower3.PNG" style="width: 23%;">
+        <img src="../sample/image/flower4.PNG" style="width: 23%;">
+    </div>
+
+    <h2>이미지 링크</h2>
+    <a href="http://w3schools.com" title="와삼스쿨로 이동하기"> <!--여기서 사용하는 title은 간단한 설명정도를 의미한다-->
+        <img src="../sample/image/tiger.jpg" alt="타이거 사진">
+    </a>
+
+    <h3>image map</h3>
+    <img src="../sample/image/river1.PNG" style ="width: 500px;" alt="두물머리사진" usemap="#mymap"> <!--usemap쓸꺼야? 응 mymap 쓸거야-->
+    <map name="mymap">
+        <!--shape = rect | circle | poly-->
+        <area shape="rect" coords="0,0,250,333" href="http://google.com" alt="구글로 이동">
+        <area shape="rect" coords="250,0,500,333" href="http://naver.com" alt="네이버로 이동">
+
+    </map>
+
+    <h2>이미지배치</h2>
+    <!-- div>img+p>lorem*10 -->
+    <div>
+        <img src="../sample/image/forest1.PNG" style="float: left;">
+        <p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo excepturi, fugit commodi ducimus nisi ad soluta porro architecto dolor rerum repellendus nulla eum dolores sint? Modi repudiandae obcaecati ullam minima.</span><span>Odit obcaecati quo optio incidunt nostrum, animi harum pariatur mollitia error. Architecto nesciunt, sunt, rem voluptatem explicabo consequatur magni fugit, reiciendis nulla error ex veniam quis placeat accusamus omnis est?</span><span>Dolore quaerat iusto eum quasi aut odio quisquam iste, suscipit quibusdam corrupti enim, quos aliquam ratione facilis, iure dignissimos fuga dolorum deleniti unde excepturi aperiam. Magni quam aspernatur minus sed?</span><span>Et error reprehenderit nostrum nobis vitae eos eius dolorem odio quos? Quae aliquam quibusdam repudiandae dolorem ratione fuga deleniti dolor aspernatur omnis debitis voluptates quia nam veniam temporibus, consequuntur reiciendis?</span><span>Recusandae ducimus provident temporibus reiciendis libero voluptate tenetur itaque suscipit natus veritatis culpa atque, numquam unde quos, nesciunt neque eos doloremque quisquam impedit? Officia aliquam animi error nam blanditiis? Voluptate.</span><span>Amet, at voluptatibus? Aperiam eum at dignissimos culpa non, ratione libero accusantium alias ullam! Illum nisi nostrum unde, molestias nesciunt fugiat incidunt enim hic sequi amet, quaerat quo temporibus iste.</span><span>Facere aperiam accusamus nesciunt temporibus aut eveniet sit eum dicta repellat consectetur porro voluptate earum modi impedit, praesentium quo dolorum eos inventore repellendus, aliquid odio dolores pariatur recusandae? Odio, qui.</span><span>Vitae blanditiis eaque facilis a explicabo quia maiores laboriosam odit laudantium quam quisquam modi, et nisi, optio dolore officia aperiam! Eius modi neque voluptas corporis veniam officia nostrum iure facilis.</span><span>Temporibus nostrum a hic excepturi obcaecati sint, consequatur et quam perferendis, rem eveniet pariatur itaque asperiores quaerat praesentium incidunt veritatis neque mollitia maxime atque maiores dolorum quisquam corporis distinctio. Quos!</span><span>Deleniti ut tempore adipisci impedit illum quia rem itaque laboriosam architecto! Voluptatibus, at voluptatum. Dignissimos, obcaecati facere? Provident perspiciatis quasi fugiat corrupti? Modi molestias ex nesciunt voluptatum numquam nemo qui.</span></p>
+    </div>
+    <div>
+        <img src="../sample/image/forest1.PNG" style="float: right;">
+        <p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo excepturi, fugit commodi ducimus nisi ad soluta porro architecto dolor rerum repellendus nulla eum dolores sint? Modi repudiandae obcaecati ullam minima.</span><span>Odit obcaecati quo optio incidunt nostrum, animi harum pariatur mollitia error. Architecto nesciunt, sunt, rem voluptatem explicabo consequatur magni fugit, reiciendis nulla error ex veniam quis placeat accusamus omnis est?</span><span>Dolore quaerat iusto eum quasi aut odio quisquam iste, suscipit quibusdam corrupti enim, quos aliquam ratione facilis, iure dignissimos fuga dolorum deleniti unde excepturi aperiam. Magni quam aspernatur minus sed?</span><span>Et error reprehenderit nostrum nobis vitae eos eius dolorem odio quos? Quae aliquam quibusdam repudiandae dolorem ratione fuga deleniti dolor aspernatur omnis debitis voluptates quia nam veniam temporibus, consequuntur reiciendis?</span><span>Recusandae ducimus provident temporibus reiciendis libero voluptate tenetur itaque suscipit natus veritatis culpa atque, numquam unde quos, nesciunt neque eos doloremque quisquam impedit? Officia aliquam animi error nam blanditiis? Voluptate.</span><span>Amet, at voluptatibus? Aperiam eum at dignissimos culpa non, ratione libero accusantium alias ullam! Illum nisi nostrum unde, molestias nesciunt fugiat incidunt enim hic sequi amet, quaerat quo temporibus iste.</span><span>Facere aperiam accusamus nesciunt temporibus aut eveniet sit eum dicta repellat consectetur porro voluptate earum modi impedit, praesentium quo dolorum eos inventore repellendus, aliquid odio dolores pariatur recusandae? Odio, qui.</span><span>Vitae blanditiis eaque facilis a explicabo quia maiores laboriosam odit laudantium quam quisquam modi, et nisi, optio dolore officia aperiam! Eius modi neque voluptas corporis veniam officia nostrum iure facilis.</span><span>Temporibus nostrum a hic excepturi obcaecati sint, consequatur et quam perferendis, rem eveniet pariatur itaque asperiores quaerat praesentium incidunt veritatis neque mollitia maxime atque maiores dolorum quisquam corporis distinctio. Quos!</span><span>Deleniti ut tempore adipisci impedit illum quia rem itaque laboriosam architecto! Voluptatibus, at voluptatum. Dignissimos, obcaecati facere? Provident perspiciatis quasi fugiat corrupti? Modi molestias ex nesciunt voluptatum numquam nemo qui.</span></p>
+    </div>
+
+</body>

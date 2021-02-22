@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <title>table</title>
+    <style>
+        /*css 작성  -> head부분에 tilt다음으로 style부분에 작성, 
+        body 에 작성된 table모두가 적용받게 된다.*/
+        table{
+            border: 1px solid black;
+            border-collapse: collapse; /*사이 공간없이 한줄로 표현*/
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 5px; 
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <h1>table</h1>
+    <!--
+        table table관련 최상위태그
+            thead(제목같은 역할) | tbody(내용) -> 크롬 자동 생성 | tfoot(마지막 정리) 행타입 태그
+                tr 행
+                    th 제목셀
+                    td 내용셀
+    -->
+    <!-- 옛날 스타일 <table border="1"> -->
+    <table>
+        <thead>
+
+                <tr>
+                    <th>브라우저명</th>
+                    <th>제조사</th>
+                    <th>홈페이지</th>
+                </tr>
+                <tr>
+        </thead>
+
+        <tbody>
+                
+                <td>크롬</td>
+                <td>구글</td>
+                <td><a href="http://google.com">http://google.com</a></td>
+            </tr>
+            <tr>
+                <td>사파리</td>
+                <td>구글</td>
+                <td><a href="http://apple.com">http://apple.com</a></td>
+            </tr>
+            <tr>
+                <td>파이어폭스</td>
+                <td>모질라</td>
+                <td><a href="http://mozilla.org">http://mozilla.org</a></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>총개수</td>
+                <td colspan="2">3</td> 
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+    
+    <table>
+        <tr>
+            <th colspan="4">이력서</th>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2" style="width: 130px; height:150px;">사진</td>
+            <td style="width: 80px;">이름</td>
+            <td style="width: 200px;"></td>
+        </tr>
+        <tr>
+            <td>연락처</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="width: 70px; height: 50px;">주소</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td style="height: 100px;">자기소개</td>
+            <td colspan="3"></td>
+        </tr>
+
+
+
+    </table>
+
+
+</body>

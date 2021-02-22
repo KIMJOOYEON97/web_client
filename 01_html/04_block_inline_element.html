@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>block | inline</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: salmon;
+        }
+
+        span{
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: royalblue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>block요소</h1>
+    <!-- 화면너비를 전체 사용하므로, 태그를 나열했을때, 줄바꿈처리되어 세로로 배치됌-->
+    <!--div{div$}*3 ->그룹핑하는 태그-->
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    
+    <!-- p>lorem -->
+    <!-- lorem ipsum : 채우기텍스트 -->
+    <p style="background-color: seagreen;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fugiat laborum impedit praesentium illum quas excepturi, adipisci vel dolor, cupiditate corporis vitae iste. Magnam nam voluptas assumenda totam aliquid quis!</p>
+    
+
+    <h1>inline요소</h1>
+    <!-- 컨테츠영역만을 너비로 사용하므로, 태그 나열시, 줄바꿈 되지 않고, 옆으로 배치됨.-->
+    <!--width, height값은 무시된다.-->
+    <!-- span{span$}*3 ->짧은 문자를 감싸는 태그 -->
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+
+    <span style="background-color: slategray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet reprehenderit quisquam culpa iste blanditiis impedit consequatur similique repudiandae magni fuga sint reiciendis aspernatur, ad nam, aliquam eum aperiam unde libero.</span>
+
+</body>
+
+
+
+</html>
