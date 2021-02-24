@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border</title>
+</head>
+<body>
+    <h1>border</h1>
+    
+    <div class="test"></div>
+    <style>
+    .test{
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        margin: 0 auto;
+        /* border-width: 1px;
+        border-style: solid;
+        border-color: black; */
+        border : 5px solid black;
+        /* border-radius: 50% 40% 30% 20%;  */
+        /*100px(50%)에 가까울 수 록 원이 된다.*/
+        /* border-radius: 50% 40% 30%; */
+        /* border-radius: 50% 40%; */
+        border-radius: 50%;
+    }
+    </style>
+
+    <h2>box-shadow</h2>
+    <div class="box"></div>
+    <style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: cornflowerblue;
+        border: 3px solid black;
+        border-radius: 10px;
+        margin: 10px auto;
+    }
+    .box:hover{
+        /*가로offset 세로offset 번짐 그림자크기 컬러*/
+        box-shadow: 5px 5px 15px 5px gray;
+
+    }
+    </style>
+
+</body>
+</html>

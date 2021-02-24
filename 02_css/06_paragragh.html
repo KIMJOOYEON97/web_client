@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-paragragh</title>
+</head>
+<body>
+    <h1>문단</h1>
+    <div class="wrapper">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum itaque consectetur at similique commodi repellat! Nostrum labore aut quas molestiae minima cum facilis error, distinctio ut aspernatur eum ducimus vitae?</p>
+        <p>Atque, ad quod doloribus placeat laudantium rerum ipsa velit voluptate optio, voluptatem saepe quis! Excepturi, velit tenetur. Neque mollitia atque sunt dolores quisquam at, fugit temporibus consequuntur corrupti, facere fugiat?</p>
+        <p>Voluptate accusamus ea id numquam autem. Nesciunt sapiente nostrum dolorum, sed odit delectus officia dicta facere aperiam, numquam eos dolores ex animi deleniti tenetur, aliquid autem? Quod fuga officia nisi?</p>
+        <p>Voluptatum ab possimus distinctio itaque nobis exercitationem hic harum consequatur assumenda vel voluptate numquam quisquam id maxime ea, quas iste consectetur autem. Asperiores, illo nobis animi reiciendis enim excepturi maxime.</p>
+        <p>Vel, cumque esse ab incidunt eum aliquid nam aspernatur quia nesciunt commodi placeat necessitatibus consequuntur reiciendis delectus rem ipsam quos fugiat recusandae in? Nam, numquam? Modi consectetur velit quae dolore?</p>
+    </div>
+    <style>
+        /* 첫글자 */
+    .wrapper p::first-letter{
+        font-size: 2em;
+    }
+    /* 첫줄 */
+    /* .wrapper p::first-line{
+       text-decoration: underline;
+    }
+    .wrapper P::before{
+        content: "😊";
+    }
+    .wrapper P::after{
+        content: "❤";
+    } */
+
+    .wrapper{
+        counter-reset: section;
+    }
+
+    .wrapper p::before{
+        counter-increment: section;
+        content:  counter(section)" ";
+        /* content:  counters(section,".")" "; */
+    }
+    }
+/* 블럭 잡았을때 */
+    ::selection{
+        background-color: cadetblue;
+        color: crimson;
+    }
+    </style>
+</body>
+</html>

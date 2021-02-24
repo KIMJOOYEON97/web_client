@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-align</title>
+</head>
+<body>
+<!-- 
+    가운데 정렬시
+    1. inline요소 : 부모 block요소에 text- align 속성을 지정
+    2. block 요소 : 스스로에게 margin 속성을 이용해 지정
+ -->
+    <h1>정렬 align</h1>
+    <!-- div.wrapper>span -->
+    <div class="wrapper">
+        <h3>허허허</h3>
+        <span>안녕하세요 :)</span>
+        
+    </div>
+    <style>
+    .wrapper{
+        background-color: cadetblue;
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        /* 방향 top right bottom left */
+        /*top/bottom left/right */ /*위/아래 좌/우*/
+        margin: 10px auto; /*margin-left = margin-right*/
+    }
+    </style>
+    
+    <h2>텍스트 정렬</h2>
+    <p id="t-align">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis tempore eos ex, nobis maiores a hic atque cumque cupiditate, iusto totam nostrum perspiciatis, cum at obcaecati error voluptate consequuntur. Beatae.</p>
+    <style>
+    #t-align{
+        text-align: center;
+    }
+    </style>
+</body>
+</html>

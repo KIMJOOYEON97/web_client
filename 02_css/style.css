@@ -1,0 +1,6 @@
+/*마치 스타일 태그 안인 것처럼 작성하면 된다*/
+/*style태그 없이 css코드만 작성*/
+#p-third {
+    background-color: aquamarine;
+    color: brown;
+}
