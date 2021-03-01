@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5-layout</title>
+</head>
+<style>
+    div,header
+    #container{
+        background-color: lavender;
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    #header{
+        background-color: lightgray;
+        height: 100px;
+    }
+    #content{
+        background-color: lightpink;
+        width: 680px;
+        height: 400px;
+        float: left;
+    }
+    #sideinfo{
+        background-color: lightcoral;
+        width: 280px;
+        height: 400px;
+        float: left;
+    }
+    #footer{
+        clear: both; 
+        /* float끝 선언 */
+        background-color: lightblue;
+        height: 100px;
+    }
+    nav{
+        height: 25px;
+        color: black;
+        float: right;
+    }
+    ul{
+        width: 500px;
+        list-style-type: none;
+        padding-left : 0px;
+    }
+    .table{
+        display: table;
+        text-align: right;
+    }
+    .table a{
+        display: table-cell;
+        vertical-align: top;
+
+    }
+    nav li{
+        color: black;
+        display: inline;
+        /* float: left; */
+    }
+    li>a{
+        color: black;
+        text-decoration: none;
+        counter-reset: none;
+    }
+    li:not(:last-of-type):after{
+       content: "|";
+    }
+    li:last-child{
+        content: none;
+    }
+
+    h3, h4{
+        margin: 10px;
+    }
+    #footer p{
+        text-align: center;
+    }
+    p{
+        padding: 10px;
+    }
+    </style>
+<body>
+        <div id="container">
+            <header id="header">
+                <br><h3><strong>Header</strong></h3>
+                <nav>
+                    <ul class="table">
+                        <li><a href="#">&lt;Home></a></li>
+                        <li><a href="#">&lt;HTML5></a></li>
+                        <li><a href="#">&lt;CSS3></a></li>
+                        <li><a href="#">&lt;JQuery></a></li>
+                        <li><a href="#">&lt;Mobile></a></li>
+                        <li><a href="#">&lt;Profile></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="content">
+                <article>
+                <h3>Article1</h3>
+                <p>동력은 역사를 끝까지 사라지지 생명을 사막이다. 귀는 풀이 맺어, 산야에 안고, 아니다. 아니한 가치를 끓는 어디 같은 간에 희망의 커다란 이것이다. 인생을 가장 어디 아니한 사랑의 석가는 몸이 교향악이다.</p>
+                 </article>
+                <article>
+                <h3>Article2</h3>
+                <p>동산에는 살았으며, 반짝이는 불어 곳이 그들은 것이다.보라, 영원히 것이다. 행복스럽고 낙원을 옷을 하였으며, 살았으며, 아름다우냐?</p>
+                </article>
+            </section>
+            
+            <aside id="sideinfo">
+                <h4>sideinfo</h4>
+            </aside>
+
+            <footer id="footer">
+                <h3>footer</h3>
+                <p>&lt;Copyright 2017. <strong>KH정보교육원</strong>. All rights reserved.&gt;</p>
+            </footer>
+        </div>
+    
+</body>
+</html>
