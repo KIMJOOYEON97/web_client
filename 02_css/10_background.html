@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+</head>
+<body>
+    <h1>background</h1>
+    <!-- 
+        background -color : 배경색
+        background -image : 배경이미지 url(경로)
+        background -repeat : 배경이미지의 x/y축 반복 repeat-x | repeat-y | no-repeat
+        background -position : 배경이미지의 위치 left | right | center<x축>,top | bottom | center<y축>
+        background -size : contain(x/y축중에 한쪽이 꽉찰때까지 확대/축소, 공백이 생길수 있음) 
+                            | cover(모두 채울수 있도록 확대/축소. 이미지 짤릴 수 있음)
+        background -attachment:
+            scroll: 페이지스크롤시 영역과 함께 스크롤됌
+            fixed : 영역과 별개로 화면에 고정.
+        background -clip :border -box(기본값,보더영역까지 bgd됌) | padding-box|contect-box
+        background -origin : 배경이미지 시작위치 border-box(기본값) | padding-box|contect-box
+     -->
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div id="bg">
+         <!-- <img src="이미지배포/image/bgsample.PNG" alt="배경이미지"> -->
+     </div>
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <style>
+    #bg{
+        width: 100%;
+        height: 800px;
+        border: 1px solid #000;
+        /* 한꺼번에 */
+        /* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
+        background: url("./이미지배포/image/bgsample.PNG")  center center/cover no-repeat fixed;
+        background-clip:padding-box;
+        /* background-image: url("./이미지배포/image/bgsample.PNG"); */
+        /* background-position: center bottom; */
+        /* background-repeat: no-repeat; */
+        background-size: contain; /*비율유지 이미지 잘리지X*/
+        /* background-size: cover; */   /*비율을 유지하면서 이미지 잘리더라도 주어진 크기 꽉채움*/
+        /* background-attachment: fixed; */
+    }
+     </style>
+</body>
+</html>

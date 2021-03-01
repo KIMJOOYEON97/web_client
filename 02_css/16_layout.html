@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+</head>
+<style>
+#container{
+    background-color: lavender;
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+#header{
+    background-color: lightgray;
+    height: 100px;
+}
+#content{
+    background-color: lightpink;
+    width: 640px;
+    height: 400px;
+    float: left;
+}
+#sideinfo{
+    background-color: lightcoral;
+    width: 280px;
+    height: 400px;
+    float: left;
+}
+#footer{
+    clear: both; 
+    /* float끝 선언 */
+    background-color: black;
+    height: 100px;
+}
+</style>
+<body>
+    <!-- html5 이전의 페이지 레이아웃 -->
+    <div id="container">
+        <div id="header">Header</div>
+        <div id="content">content</div>
+        <div id="sideinfo">sideinfo</div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+</html>
