@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리 만들기</title>
+    <style>
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+    }
+    li{
+        display: inline-block;
+    }
+
+    #gallery{
+        background-color: rgb(97, 97, 100);
+        margin: 0 auto;
+        text-align: center;
+        border: 15px solid rgb(41, 41, 43);
+        width: 70vw;
+        height: 40vw ;
+        padding: 50px;
+        /* overflow:visible ; */
+
+
+    }
+    .smallimg{
+        width: 200px;
+        height: 150px;
+    }
+
+    .pic{
+        display: none;
+        width: auto;
+        height: auto;
+        position:absolute;
+        z-index: 10;
+    }
+
+    li:hover .pic{
+        display: block;
+        margin: -50px 150px;
+        cursor: pointer;
+        border: 5px solid #002;
+    }
+
+    </style>
+</head>
+<body>
+    <h2>사진 갤러리 만들기</h2>
+    <hr>
+    <div id="gallery">
+        <ul>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/flower1.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/flower1.PNG" class="pic">
+            </li>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/flower2.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/flower2.PNG" class="pic">
+            </li>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/flower3.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/flower3.PNG" class="pic">
+            </li>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/flower4.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/flower4.PNG" class="pic">
+            </li>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/flower5.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/flower5.PNG" class="pic">
+            </li>
+            <li>
+                <!-- ::marker -->
+                <img src="./이미지배포/image/forest1.PNG" class="smallimg" alt="">
+                <img src="./이미지배포/image/forest1.PNG" class="pic">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
