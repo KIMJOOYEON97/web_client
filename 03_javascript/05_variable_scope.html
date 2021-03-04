@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variable_scope</title>
+</head>
+<body>
+    <h1>Variable | Scope</h1>
+    <input type="button" value="전역 | 지역" onclick="test1()">
+    <input type="button" value="scope" onclick="test2()">
+    <input type="button" value="개선" onclick="test3()">
+    <script>
+    // 함수 밖 script태그에 작성된 var 변수는 전역변수로 등록된다.
+    // 최상위 객체 window의 속성으로 등록된다. (한페이지에 쓰일 수 있는 모든 것이 window 소속)
+    var a;
+    a = 100; //변수의 타입이 결정
+
+    /**
+     * 함수 안의 var변수는 지역변수로 등록된다
+     * 함수 밖에서는 절대 접근할 수 없다.
+     * */
+    //함수 실행이 끝나면 메모리에서 날라가서 접근불가
+    function test1(){
+        var a ="아"; //이름이 겹칠때는 가까운 것 우선순위 가진다.
+        var a = true; //중복 선언 가능
+        var b = 123;
+        console.log("a = " +a);
+        console.log("b = " +b);
+        // 전역변수 a를 호출하는 방법 window.a or this.a
+        console.log("a = " +window.a);
+        //(this용법2) 일반함수 안에서 this는 window객체를 가리킨다.
+        console.log("a = " +this.a); 
+        
+        //var 키워드 없이쓰면 window 밑으로 들어가 버린다.
+        // c ='ㅋㅋㅋㅋ'; //var 없이 선언된 변수는 함수안이라고 해도 전역변수로 등록
+        // console.log("c = " +c); 
+    }
+
+    /**
+     * scope 유효범위
+     * c - family언어가 가진 block scope(블럭단위로 움직이는)가 아닌,
+     * javascript에서는 function scope를 가진다. (함수단위로)
+     * */
+    function test2(){
+        var x = 10;
+
+        if(true){
+            var x = 100;
+        }
+
+        console.log(x);
+        // java식이면  x는 10이 나와야한다.
+        //그러나 js에서는 100이 나온다.
+
+        for(var i =0; i <10; i++){} //블록으로써 가드레일을 제공X
+
+        console.log(i)
+    }
+
+    var k = 123.456;
+
+    if(true){
+        var k = 456.789;
+    }
+    console.log(k); 
+    // 함수 밖은 다 전역이다.
+
+    /**
+     * user strict 엄격모드 지원
+     * 
+     * ES6 지원
+     * let - block scope를 가진 변수 키워드
+     * const - block scope를 가진 상수 키워드
+     * 
+     */
+    function test3(){
+        // "use strict";
+
+        // foo = 100;
+        // // var키워드 없이선언한 것은 오류가 발생하게
+        // console.log(x);
+        // // 05_variable_scope.html:77 Uncaught ReferenceError: foo is not defined
+
+        let foo = 100;
+        let foo = 200; 
+        // 05_variable_scope.html:87 Uncaught SyntaxError: Unexpected identifier
+        const bar ='상수';
+        // bar = "변수냐";  상수이기때문에 변수처럼 값을 바꿀 수 없다.
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casting</title>
+</head>
+<body>
+    <h1>Casting</h1>
+    <input type="button" value="실행" onclick="test1();">
+    <script>
+    function test1(){
+        console.log(3 + 7 +"7"); //107   77
+        console.log(typeof(3 + 7 +"7")); //string
+
+//  더하기를 제외하고는 뒤에 숫자가 오기를 기대하기때문에 자동형변환이 이루어짐
+        console.log(7 -"7");//0
+        // 7 - 7(자동형변환) = 0
+        console.log(7 * "7"); //49
+        console.log(7 / "7"); //1
+        console.log(7 % "4"); //3
+
+        console.log(7 % 'a'); //NaN  not a number ->숫자로 자동형변환이 불가한 우항 => 산술연산이 일어날 수 없음
+        console.log(typeof(NaN)); // number  NaN : 숫자를 기대하는데 숫자가 아닐때의 키워드
+        // null - object
+        //키워드와 타입 관계 잘 보기
+    }   
+    </script>
+    <h2>Number | parseInt | parseFloat </h2>
+    <input type="button" value="실행" onclick="test2()">
+    <script>
+    var test2= function(){
+        var num= '1234.567';
+        console.log(Number(num)); //1234.567 정수/실수 변환
+        console.log(parseInt(num)); // 1234 정수변환
+        console.log(parseFloat(num));// 1234.567 실수로 변환
+        
+        var num= '1234.567원';
+        console.log(Number(num)); //NaN 변화불가한 문자 있으면 NaN을 리턴
+        // 왼쪽부터 변환이 시작 
+        console.log(parseInt(num)); //1234 문자가 있어도 좌측부터 최대한 변환
+        console.log(parseFloat(num));// 1234.567 실수로 변환. 문자가 있어도 좌측부터 최대한 변환
+    }
+    </script>
+    <input type="number" id="num1" placeholder="숫자1"> 
+    <!-- type이 number이지만 다 문자열이다. -->
+    <input type="number" id="num2" placeholder="숫자2">
+    <input type="button" value="합 계산" onclick="test3();">
+    <script>
+    /**
+     * #num1, #num2의 값을 더해서 출력하세요
+     * 
+     * input태그의 value는 type속성과 관계없이 모두 string이다.
+     * */
+    var test3 = function(){ 
+        var sum = Number(num1.value) + Number(num2.value);
+        console.log(sum);
+    }
+    </script>
+</body>
+</html>

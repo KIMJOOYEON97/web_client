@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hoisting</title>
+    <!-- hoisting  명사 1. 끌어 올리기; 들어올려 나르기. -->
+<body>
+    <h1>hoisting</h1>
+    <script>
+    // var a; //var키워드로 선언된 변수는 hoisting된다.
+    // function foo; //함수선언식 hositing 된다.
+    // var bar //var키워드로 선언된 변수는 hoisting된다. ->변수에 담긴게 함수인지 모른다.(함수선언식으로 작성되었을 경우)
+        // var나 함수 선언식이 script 가장 위쪽으로 끌어올려진다는 것.
+
+    console.log(a); //undefined
+    // 먼저 실행하게 끌어올림
+    var a ="안녕";
+    
+    // console.log(a); 
+    // var a ="안녕"; -> undefined
+    // a ="안녕"; //오류남 // Uncaught ReferenceError: a is not defined
+
+    foo();
+    /**
+     * 함수 선언식은 hositing된다.
+     */
+    function foo(){
+        console.log("foo");
+    }
+
+    // bar(); // Uncaught TypeError: bar is not a function
+    // script 태그 내에서 오류가 나면 다음(하위) 코드가 실행되지 않는다.
+    /**
+     * 함수 표현식 -> 변수에 함수를 담는 것
+     * bar변수에 익명함수를 대입
+     */
+    var bar = function(){
+        console.log("bar");
+    }
+    bar(); //뒤이어서 호출하는 것은 아무 문제가 안된다.
+
+    </script>
+</body>
+</html>
