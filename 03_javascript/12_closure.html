@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body>
+    <h1>Function closure(닫혀있는 함수)</h1>
+    <h2>자유변수</h2>
+    <script>
+    var hi = "안녕";
+    /**
+     * 자유변수 : 함수 지역범위에 정의되지 않은 변수
+     * hi가 자유변수
+     * 매개 변수도 지역 변수이다.
+     */
+    function greet(name){
+        var word = "반가워";
+        console.log(hi +name+word);
+        //hi만 전역변수 -> greet함수 안에 hi만 정의되어있지 않다.
+    }
+    greet("철수");
+    </script>
+
+    <h2>closure</h2>
+    <input type="button" value="globalCounter" onclick="test1();">
+    <input type="button" value="closureCounter" onclick="test2();">
+    <script>
+    var test2 = makeClosureCounter();
+
+    function makeClosureCounter(){
+        var cnt = 0; //cnt변수 보호가 된다.
+        return function(){
+            console.log("closureCounter : "+ ++cnt)
+        }
+    }
+
+    //전역변수 cnt
+    var cnt = 0; //cnt에 접근해서 외부에서 값을 바꾸면 값이 바뀐다.
+    function test1(){
+        console.log("globalCounter : "+ ++cnt) //위험한 상황이 생길 수 있다.
+    }
+    /**
+     * 함수실행에 필요한 모든 자원(지역변수, 자유변수)을 가지고 외부로부터 닫혀있는 함수
+     */
+         function funcX(){
+            var num = 100;
+            return function(){
+                console.log('num=',num);
+            }
+        }
+        var num = 200;
+        var myf = funcX(); 
+        console.log(myf) //ƒ (){ console.log('num=',num);}
+        myf(); //num = 100
+
+    </script>
+</body>
+</html>

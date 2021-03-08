@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <h2>함수 작성</h2>
+    <script>
+    /**
+     * 함수 선언식
+     */
+    function foo(){
+
+    };
+
+    /**
+     * 함수 표현식
+     */
+    var bar = function far(){
+
+    };
+    bar();
+    // far(); Uncaught ReferenceError: far is not defined
+
+    /**
+     * 즉시 실행 함수 : Immediately Invoked Function Expression IIFE
+     */
+    (function(){
+        console.log("hello iife!")
+    })();
+
+    // 호출코드가 안에 들어온 경우
+    (function(){
+        console.log("bye iife!");
+    }());
+
+    //호출할때 매개인자를 전달해야함
+    (function(name){
+        console.log("안녕~"+name);
+    }) ('철수');
+    </script>
+
+    <h2>매개변수 | 매개인자</h2>
+    <!-- input:b[onclick] -->
+    <input type="button" value="실행" onclick="test1(1,2,3);test1('안','녕');test1(true);">
+    <input type="button" value="arguments" onclick="test2();">
+    <script>
+    /**
+     * 매개인자의 합을 출력하는 가산기함수 add를 작성
+     */
+        function test2(){
+            add(1,2,3,4,5,6,7,8,9,10);//55
+            add(12.34,45.67); //58.01
+            add('a','b','c','d') //"abcd"
+        }
+        // args안써도 된다.
+        function add(args){
+            var sum =isNaN(arguments[0]) ? "" : 0;
+            // arguments라고 써야함 args라고하면 0나온다.
+            for(var i =0; i<arguments.length;i++){
+                // if(arguments[i] < Infinity)
+                    sum+=arguments[i];  
+                // console.log(arguments[i]);
+                // console.log(sum);
+                // else
+                    // str+= arguments[i]
+            }
+            // console.log(Math.round(sum*100)/100);
+            // console.log(str);
+            console.log(sum);
+        }
+
+    </script>
+
+    <h2>함수 특징</h2>
+    <input type="button" value="return value" onclick="test3();">
+    <input type="button" value="중첩 함수" onclick="test4(10,5);">
+    <script>
+    /**
+     * a^2 + b^2 = c^2
+     * 밑변  높이   빗변
+     */
+    function test4(a, b){
+        // 선언식이냐 표현식이냐는 중요하지 않음
+        // var power = function(n){}
+        function power(n){
+            return n ** 2; //제곱을 나타냄
+        }
+
+        //제곱근 구하기  | 제곱근 구하는 함수 Math.sqrt()
+        c = Math.sqrt(power(a) + power(b));
+        console.log(c); //11.180339887498949
+    }
+    /**
+     * 함수의 return구문이 없다면 undefined를 리턴.
+     */
+    function test3(){
+        var k= koo();
+        console.log(k); //undefined
+    }
+    function koo(){
+        // return 100;
+    }
+    </script>
+    
+    <script>    
+    /**
+     * 매개변수 parameter 값이 전달된 공간
+     *  함수선언부의 매개인자가 담길 공간(변수)
+     * 매개인자 argument 전달되는 값
+     *  함수호출부에서 전달될 값
+     * 
+     * 매개변수, 매개인자의 개수가 달라도 문제가 되지않는다.
+     */
+    function test1(x){
+        console.log("x = " + x);
+
+        //매개인자 유사배열 arguments참조
+        for(var i = 0; i<arguments.length;i++){
+            console.log(arguments[i]);
+        }
+
+
+    }
+    </script>
+
+    <h2>함수 고급</h2>
+    <input type="button" value="매개인자" onclick="test5();">
+    <input type="button" value="리턴값" onclick="test6();">
+    <input type="button" value="999" onclick="(soo())(999);">
+    <!-- <input type="button" value="999" onclick="(soo());"> 
+            함수를 선언해놓기만하면 아무일도 안일어난다. ----- -->
+    <script>
+    function soo(){
+        return function(n){
+            alert(n);
+        }
+    }
+
+
+    function test6(){
+        // var f = makeFunction();
+        // console.log(f, typeof f)
+        // f('js'); //'hello js~'
+        // (makeFunction()('js')); //즉시실행함수와 유사해짐
+        //--함수------  --호출코드
+
+        var sayHello = makeFunction('say');
+        var sayGoodbye = makeFunction('good bye')
+
+        sayHello('js');
+        sayGoodbye('js');
+    }
+
+    function makeFunction(say){
+        return function(name){
+            console.log( say +name+'~');
+        }
+    }
+
+    /**
+     * 자바스크립트에서 함수는 값으로 취급된다.
+     * 변수에 대입(함수표현식)할 수 있고, 
+     * 함수의 인자로 전달되거나(콜백함수), 
+     * 리턴값으로 사용될 수 있다.
+     */
+    function test5(){
+        var f = function(n){
+            // console.log(n+" : hello, javascript!")
+            console.log(n+": hello,"+names[n-1]);
+        };
+        // f(1);
+        // f(2);
+        // f(3);
+        
+        exec(f);
+    }
+
+    var names =['html','css','js','jquery','java','oracle'
+                ,'mybatis','maven','lombook','spring'];
+    /**
+     *  1:hello, html!
+     *  2:hello, css!
+     *  3:hello, jquery!
+     *  4:hello, java!
+     *  5:hello, oracle!
+     * ...
+     *  10:hello, spring!
+     */
+    function exec(a){
+        console.log(a); 
+        // ƒ (){
+        //     console.log("hell, javascript!")
+        // }
+        console.log(typeof a);
+        a();
+
+        for(var i = 0; i<10;i++)
+            a(i+1)
+        // function
+
+        // a에 함수가 들어있음으로 a를 호출하면 함수가 실행된다.
+    }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope 실습문제</title>
+</head>
+<body>
+    <script>
+        //1
+        var z = 50;
+        (function varTest(){
+            var z = 55;
+            z += 45;
+            console.log('varTest() : z=',z); //varTest() : z= 100
+        }());   //즉시실행함수           
+        console.log('z=',z);   //z= 50
+        
+        //2
+        var y = 99;
+        // var x = 100;
+        (function varTest2(){
+            var x = 100;
+            var y = 9;
+            z = 1;
+            console.log('varTest2() : x+y+z=',x+y+z); //varTest2() : x+y+z= 110
+        }());
+        //??왜 z가 1인지 이해 불가
+        console.log(z) //1
+        //함수 안에 있는 것은 밖에서 접근 불가
+        console.log('y+z=',y+z); //y+z= 100 
+        // console.log('x+y+z=',x+y+z); Uncaught ReferenceError: x is not defined
+        
+        //3
+        //전역에서 실행한 for문의 내부변수 i
+        for (var i=0; i<=10; i++) {
+            console.log(i); // 1~10까지 출력
+        }
+        //js에서는 함수 단위로 변수가 전역.지역으로 나누어진다.
+        function getNum() {
+            //??왜 i가 11이 되는지 모르겠음 -> 11이 되었을 때 반복문을 탈출함으로
+            console.log('getNum() : i=',i); //getNum() : i= 11
+        }
+        getNum();
+        
+        //4 
+        function funcX(){
+            var num = 100;
+            return function(){
+                console.log('num=',num);
+            }
+        }
+        var num = 200;
+        var myf = funcX(); 
+        console.log(myf) //ƒ (){ console.log('num=',num);}
+        myf();
+
+        funcX(); //num = 100
+
+        </script>
+</body>
+</html>
