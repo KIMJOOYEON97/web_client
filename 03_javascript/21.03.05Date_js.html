@@ -18,9 +18,9 @@
 		background: #ffcc00;
 		display: none;
 	}
+
   </style>
 </head>
-
 <body>
 	<h2>@실습문제3</h2>
 	<fieldset>
@@ -28,7 +28,7 @@
 		<!-- <input type="radio" name="category" value="title" onclick="showDiv1();" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
 		<input type="radio" name="category" value="date" onclick="showDiv1();"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
 		<input type="radio" name="category" value="writer" onclick="showDiv1();" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp; -->
-​
+
 		<!-- this를 매개변수로 던짐 -->
 		<input type="radio" name="category" value="title" onclick="showDiv2(this);" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
 		<input type="radio" name="category" value="date" onclick="showDiv2(this);" id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
@@ -47,7 +47,7 @@
 		<form method="post" action="">
 			<label> 검색할 날짜를 선택하세요 : </label>
 			<br>
-			<input type="date" name="start">  
+			<input type="date" name="start"> - 
 			<input type="date" name="end"> &nbsp; 
 			<input type="submit" value="검색">
 		</form>
@@ -66,7 +66,6 @@
 	//날짜 체크시, dateBox 만 보여지게
 	//작성자 체크시, writerBox 만 보여지게 함
 		function showDiv1(){
-			/* 여기 여러가지를 */
 			var category = document.getElementsByName("category");
 			var checkedCategory = "";
 			for(var i=0; i<category.length; i++){
@@ -75,8 +74,6 @@
 					break;
 				}
 			}
-			/* 밑의 한 줄로 해결 */
-			var checkedCategory = document.querySelector("[name=category]:checked").value;
 			//console.log(checkedCategory);
 			
 			//모두 안보이게 하기
@@ -86,9 +83,9 @@
 			
 			//특정요소만 보이게 하기
 			document.getElementById(checkedCategory+"Box").style.display = "block";
-​
+
 		}
-​
+
 		//클래스로 인자로 받은 객체로 제어
 		function showDiv2(element){
 			var checkedCategory = element.value;
@@ -100,7 +97,7 @@
 			
 			//특정요소만 보이게 하기
 			document.getElementById(checkedCategory+"Box").style.display = "block";
-​
+
 		}	
   	</script>
 </body>
