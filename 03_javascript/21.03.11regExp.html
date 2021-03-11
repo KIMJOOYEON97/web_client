@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #area{
+        margin: 30px 10px;
+    }
+    mark{
+        background-color: magenta;
+    }
+    </style>
+<body>
+    <p>1. 다음과 같은 input태그에서 주민번호의 자릿수를 체크하는 정규표현식을 작성하라.</p>
+    <label>주민번호 입력 : </label>
+    <input type="text" id="ssn">
+    <button type='button' onclick="testSSN();">실행확인</button>
+    <div id="area"></div>
+    <script>
+        function testSSN(){
+            var ssn = document.querySelector("#ssn").value;
+            var check = /^\d{13,13}$/g;
+            area.innerHTML = ssn.replace(check,"<mark>$&</mark>")
+            if(!check.test(ssn))
+                alert("잘못된 주민번호 입니다.");
+        }
+    </script>
+</body>
+</html>
