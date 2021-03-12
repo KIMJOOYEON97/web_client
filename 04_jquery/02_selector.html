@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    
+</head>
+<body>
+    <h1>selector</h1>
+    <!-- ul>li.foo#bar${안녕$}*5 -->
+    <ul>
+        <li class="foo" id="bar1">안녕1</li>
+        <li class="foo" id="bar2">안녕2</li>
+        <li class="foo" id="bar3">안녕3</li>
+        <li id="bar4">안녕4</li>
+        <li id="bar5">안녕5</li>
+    </ul>
+    <input type="button" value="tag" onclick="test1();">
+    <script>
+    /**
+     * tag
+     */
+    function test1(){
+        // $변수는 jQuery객체 -> 관례
+        // var $lis = $("ul>li");
+        // console.log($lis); //jQuery객체
+        // $lis.css("color","springgreen");
+
+        // var lis = document.querySelectorAll("li");
+        // for(var i = 0; i <lis.length; i++){
+        //     lis[i].style.color="deeppink";
+        // }
+
+        // $(".foo").css("font-size","2em");
+
+        var $bar1 = $('#bar1');
+        var $bar1_;
+        console.log($bar1); 
+        console.log($bar1_=$bar1.css("text-decoration","underline"))
+        console.log($bar1 == $bar1_); //true
+         //무조건 해당 jQuery의 객체를 리턴한다
+
+        // method chaining
+        $("#bar1").css("font-size","3em")
+                  .css("background-color","deeppink")
+                  .css("color","#fff");
+
+    }
+
+    </script>
+    
+    <hr>
+    <fieldset>
+
+        <!-- (input:checkbox[name=menu]#menu$+lable[for=menu$])*4 -->
+        <input type="checkbox" name="menu" id="menu1" value="햄버거"><lable for="menu1">햄버거</lable>
+        <input type="checkbox" name="menu" id="menu2" value="핫도그"><lable for="menu2">핫도그</lable>
+        <input type="checkbox" name="menu" id="menu3" value="피자"><lable for="menu3">피자</lable>
+        <input type="checkbox" id="menuAll"><lable for="menuAll">전체선택/해제</lable>
+        <input type="button" value="get | set" id="checkGetSet">
+        <input type="button" value="확인" id="checkValue">
+    </fieldset>
+    <script>
+
+    $("#checkValue").click(function(){
+        //jquery객체 요소 순회
+        // $("[name=menu]").each(function(index,elem){
+        //     // console.log(index,elem); //elem 순수 js tag객체
+        //     var $elem = $(elem);
+        //     if($elem.prop("checked"))
+        //         console.log($elem.val());
+        // })
+        $("[name=menu]:checked").each(function(index, menu){
+            console.log(menu.value); //javascript
+            console.log($(menu).val()); //jquery
+        })
+    });
+
+    /**
+     * #checkGetSet click event handling
+     * 복수개의 요소를 가진 jquery객체
+     * -getter 첫번째인자의 속성값
+     * -setter 모든 인자의 속성값에 적용
+     */
+    $("#checkGetSet").click(function(){
+        // console.log($("[name=menu]").prop("checked")); //getter
+        console.log($("[name=menu]").prop("checked",true)); //setter
+    })
+
+
+    /**
+     * [name=menu] 전체선택/해제 처리
+     */
+    $("#menuAll").change(function(e){
+        $("[name=menu]").prop("checked",this.checked);
+    })
+
+
+    console.log($("[name]"));//name이 있는 것들 전부
+    console.log($("[name=menu]"));//name이 있는 것들 전부
+
+    //jQuery 이벤트핸들링
+    $("[name=menu]").change(function(e){
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(this.checked);
+        
+        //jQuery의 이러한 속성은 getter인 동시에 setter이다
+
+        //jQuery객체       prop 속성을 boolean값으로 돌려준다.
+        console.log($(this).prop("checked"));  //getter
+        $(e.target).prop("checked",true); //setter
+
+        //value속성값
+        console.log($(e.target).val());
+    });
+
+
+    </script>
+
+    <img src="images/flower1.PNG" alt="" style="margin: 50px 20px; width: 300px;">
+    <script>
+    /**
+     * attr
+     * html태그상에 기록된 속성을 가져오거나 설정할 경우
+     */
+    $("img").click(function(){
+        console.log($(this).attr("src"));; //getter
+        $(this).attr("src","images/flower2.png");//setter
+    });    
+    </script>
+
+
+    <!-- css에 없던것 -->
+    <div class="wrapper">
+        <p>안녕1</p>
+        <p>안녕2</p>
+        <p>안녕3</p>
+        <p>안녕4</p>
+        <p>안녕5</p>
+        <p>안녕6</p>
+        <p><a href="#">안녕7</a> </p>
+        <p>안녕8</p>
+        <p>안녕9</p>
+        <p>안녕10</p>
+    </div>
+    <input type="button" value=":eq()" onclick="test2();">
+    <input type="button" value=":gt() :lt()" onclick="test3();">
+    <input type="button" value=":contains()" onclick="test4();">
+    <input type="button" value=":has()" onclick="test5();">
+    <input type="button" value=":not()" onclick="test6();">
+    <script>
+    /**
+     * :not(selector)
+     */
+    function test6(){
+        $(".wrapper p:not(:first-child)").css("color","green");
+    }
+    /**
+     * :has(selector)
+     */
+    function test5(){
+        $(".wrapper p:has(a)").css("background-color","lightgray");
+    }
+    /**
+     * :contains()
+     * 특정 text를 가진 태그 조회
+     */
+    function test4(){
+        $(".wrapper p:contains('안녕8')").css("text-decoration","line-through");
+    }
+    /**
+     * :gt(index)
+     * :lt(index)
+     */
+    function test3(){
+        $(".wrapper p:gt(3)").css({
+                            "font-size":"2em","color":"deeppink"
+                            }); //css여러번 쓰기 귀찮으니 객체형태로!
+                       
+    }
+    /**
+     * :eq(index) - 인덱스 0부터 시작한다.
+     */
+    function test2(){ 
+        $(".wrapper p:eq(3)").css("font-size","2em")
+                       .css("color","deeppink");
+    }
+    </script>
+</body>
+</html>
