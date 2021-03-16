@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery_04_event_실습</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script> 
+</head>
+<body>
+    <h2>Practice</h2>
+    <script>
+        $(function(){
+            var len = $("#number").children().length;
+            console.log("length : "+len);
+            $(document).on("mouseenter","#number",function(){
+                $(this).children().each(function(){
+                    console.log($(this).attr("class"));
+                })
+            })
+        
+		});
+    </script>
+    <ul id="number">
+        <li class="n1">1</li>
+        <li class="n2">2</li>
+        <li class="n3">3</li>
+    </ul>
+
+    <hr>
+
+    <h2>Event 1</h2>
+    <script>
+        $(document).ready(function(){
+            var $selected = $("[name=number]")//.prop("selected",true);
+            console.log($selected);
+            $selected.change(function(){
+                console.log($selected);
+                //select박스 제어
+                // text값은 가져올때 해당자식인 option의 선택된 개체를 가져와야합니다. option:selected
+                //해당 옵션이 없으면 select 자식으로 들어간 option값 전부를 가져오게 됩니다.
+                $result = $("option:selected")
+
+                // $result = $(this.prop("selected",true));
+                console.log($result.text())
+                $("#selNum").text($result.text());
+            })
+
+            //밑에는 안되는 코드들..
+            // $("option").on('click',function(){
+            //     var $selected = $(this).val()
+            //     console.log($selected);
+            // })
+            
+            // $.each($op, function(i,n){
+            //     var $selected = $(n).prop("selected",true);
+            //     console.log($selected);
+            //     $("#selNum").html($selected);
+            // })
+
+            // $number.each(function(index,op){
+
+            //     var num = $(op).prop("selected",true);
+            //     console.log(num)
+            // })
+
+            // $number.on("selected","option",function(e){
+            //     console.log(($number.text())
+            //     // $number.html($number.text())
+            // })
+
+            // console.log($("[value =1]"))
+            // console.log($("[value =2]"))
+            // console.log($("[value =3]"))
+            // console.log($("[value =4]"))
+            // $("[value =1]").on("click",(function(e){
+            //     console.log($(this));
+            //     $(this).append($("<span>"+"1번"+"</span>"))
+            // }))
+
+        });
+    </script>
+    
+    <select name="number">
+        <option value="">== 선택 == </option>
+        <option value="1">1번</option>
+        <option value="2">2번</option>
+        <option value="3">3번</option>
+        <option value="4">4번</option>
+    </select>
+    <span id="selNum"></span>
+
+    <hr>
+
+    <h2>Event 2</h2>
+    <script>
+        $(document).ready(function(){
+            $tr = $("#event2 tr");
+            $tr.click(function(){
+                $(this).each(function(i,tr){
+                    
+                    console.log(tr);
+                    // console.log($tr.find("td").eq(0).text());
+                    $("#s1").text($(tr).find('td').eq(i).text());
+                    $("#s3").text($(tr).find('td').eq(i+2).text());
+                    $("#s4").text($(tr).find('td').eq(i+3).text());
+                    $("#s2").text($(tr).find('td').eq(i+1).text());
+                    // // text()는 함수다 =으로 대입X
+                    // $("#s4").text=$tr.find("td").eq(3).text();
+                })
+
+            })
+            // })
+        });
+    </script>
+    
+    <table id="event2" border="1">
+        <tr><th>번호</th><th>제목</th><th>조회수</th><th>작성일자</th></tr>
+        <tr><td>3</td><td>3번제목</td><td>0</td><td>11-07-13</td></tr>
+        <tr><td>2</td><td>2번제목</td><td>0</td><td>11-07-12</td></tr>
+        <tr><td>1</td><td>1번제목</td><td>0</td><td>11-07-11</td></tr>
+    </table>
+		선택된 행 :
+        <span id="s1"></span> / 
+        <span id="s2"></span> / 
+        <span id="s3"></span> / 
+        <span id="s4"></span>
+
+    <hr>
+    
+    <h2>Event 3</h2>
+    <script>
+    $(document).ready(function(){
+        $tr = $("#event3 tr");
+            $tr.click(function(){
+                //선택된 이 객체가 되야함으로 this가 반드시 쓰여야한다.
+                $(this).each(function(i,tr){
+                    
+                    // console.log(tr);
+                    $(tr).css("background-color","red");
+                    $("#s5").text($(tr).find('td').eq(i).text());
+                    $("#s6").text($(tr).find('td').eq(i+2).text());
+                    $("#s7").text($(tr).find('td').eq(i+3).text());
+                    $("#s8").text($(tr).find('td').eq(i+1).text());
+               
+                })
+
+            })
+            // })
+		
+    });
+    </script>
+
+    <table id="event3" border="1">
+        <tr><th>번호</th><th>제목</th><th>조회수</th><th>작성일자</th></tr>
+        <tr><td>3</td><td>3번제목</td><td>0</td><td>11-07-13</td></tr>
+        <tr><td>2</td><td>2번제목</td><td>0</td><td>11-07-12</td></tr>
+        <tr><td>1</td><td>1번제목</td><td>0</td><td>11-07-11</td></tr>
+    </table>
+		선택된 행 :
+        <span id="s5"></span> / 
+        <span id="s6"></span> / 
+        <span id="s7"></span> / 
+        <span id="s8"></span>
+</body>
+</html>
