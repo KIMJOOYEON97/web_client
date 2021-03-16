@@ -25,6 +25,16 @@
                 console.log($(this).val()+'번');
             })
         }
+
+        // function checkBtn(){
+        // var check = $("input").filter("input:checked");
+		// 	for(var index=0;index<check.length;index++) {
+            // 인덱스로 접근하면 js객체를 리턴한다 jquery객체 아니라서 .val()이 아닌 .vaule를 사용해야한다.
+		// 		console.log(check[index].value + "번");
+		// 	}
+		// 	console.log(check);
+        // }
+
     </script>
         
     <input type="checkbox" name="check" value="1" /> 1번  
@@ -44,6 +54,12 @@
             var $result = $chk.eq(1).prop("selected",true);
             console.log($result.val()+'번')
         }
+
+        // function selectBtn(){
+		// 	var check = $("option").filter("option:selected");
+		// 	console.log(check.text());
+        // }
+
     </script>
         
     <select>
